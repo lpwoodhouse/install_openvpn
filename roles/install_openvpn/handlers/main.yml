@@ -1,0 +1,7 @@
+---
+# handlers for install_openvpn role
+- name: restart openvpn
+  service:
+    name: "{{ service }}"
+    enabled: yes
+    state: restarted

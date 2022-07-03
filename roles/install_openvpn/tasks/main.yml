@@ -1,9 +1,27 @@
 ---
-- include_tasks: setup_redhat.yml
-  when: ansible_os_family == "RedHat"
+# main tasks for install_openvpn role
+- name: install package
+  package:
+    name: "{{ package }}"
+    state: latest
 
-- include_tasks: setup_debian.yml
-  when: ansible_os_family == "Debian"
+- name: enable ipv4 forwarding
+  shell: >
+    "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
-- include_tasks: setup_suse.yml
-  when: ansible_os_family == "Suse"
+- name: configure firewall exception
+  firewalld:
+    zone: trusted
+    interface: "{{ interface }}"
+    permanent: yes
+    state: enabled
+
+- name: copy configuration template
+  template:
+    src: client.conf.j2
+    dest: "{{ config_file }}"
+    owner: root
+    group: root
+    mode: 0755
+    force: yes
+  notify: restart openvpn
