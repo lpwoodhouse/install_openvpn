@@ -22,6 +22,11 @@
   
   tasks:
   
-  - name: install openvpn
+  - name: install epel package repository
+    include_role:
+      name: install_epel
+    when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+
+  - name: install openvpn client
     include_role:
       name: install_openvpn
