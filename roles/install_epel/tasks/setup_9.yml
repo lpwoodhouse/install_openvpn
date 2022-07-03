@@ -5,7 +5,7 @@
     shell: >
       dnf config-manager --set-enabled crb
   - name: install epel-release packages
-    yum:
+    dnf:
       name: 
         - epel-release
         - epel-next-release
@@ -19,7 +19,7 @@
       name: codeready-builder-for-rhel-9-$(arch)-rpms
       state: enabled
   - name:
-    yum:
+    dnf:
       name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
       state: present
   when: ansible_distribution == "RedHat"

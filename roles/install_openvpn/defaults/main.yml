@@ -1,0 +1,15 @@
+---
+# openvpn package
+package: openvpn
+
+# default interface
+interface: tun0
+
+# openvpn client service variable
+service: openvpn-client@client
+
+# path to openvpn config
+config_file: /etc/openvpn/client/client.conf
+
+# location variable
+location: usa-sanfrancisco
