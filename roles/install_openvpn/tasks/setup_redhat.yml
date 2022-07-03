@@ -1,0 +1,13 @@
+---
+- name: update packages
+  yum:
+    name: '*'
+    state: latest
+  when: ansible_distribution_major_version|int == 7
+
+- name: update packages
+  dnf:
+    name: '*'
+    state: latest
+  when: ansible_distribution_major_version|int == 8
+

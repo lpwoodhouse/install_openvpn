@@ -1,0 +1,26 @@
+---
+- name: install epel-release for CentOS
+  block:
+  - name: enable powertools
+    shell: >
+      dnf config-manager --set-enabled powertools
+  - name: install epel-release packages
+    yum:
+      name: 
+        - epel-release
+        - epel-next-release
+      state: present
+  when: ansible_distribution == "CentOS"
+
+- name: install epel-release for Enterprise Linux
+  block:
+  - name: enable RH repos
+    rhsm_repository:
+      name: codeready-builder-for-rhel-8-$(arch)-rpms
+      state: enabled
+  - name:
+    yum:
+      name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+      state: present
+  when: ansible_distribution == "RedHat"
+
