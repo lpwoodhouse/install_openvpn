@@ -20,6 +20,18 @@
     permanent: yes
     state: enabled
 
+- name: configure auth user file
+  lineinfile:
+    path: "{{ auth_file }}"
+    create: yes
+    line: "{{ item }}"
+    owner: root
+    group: root
+    mode: 0600
+  loop:
+    - "{{ auth_user }}"
+    - "{{ auth_pass}}"
+
 - name: copy configuration template
   template:
     src: client.conf.j2

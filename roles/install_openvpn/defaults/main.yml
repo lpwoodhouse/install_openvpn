@@ -11,6 +11,12 @@ service: openvpn-client@client
 # path to openvpn config
 config_file: /etc/openvpn/client/client.conf
 
+# authorized vpn user credentials
+auth_user: <username>
+auth_pass: <password>
+auth_file: /etc/openvpn/client/auth
+
+
 # location variable
 location: usa-sanfrancisco
 #location: hongkong-1
