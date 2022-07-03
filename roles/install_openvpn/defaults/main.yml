@@ -13,3 +13,5 @@ config_file: /etc/openvpn/client/client.conf
 
 # location variable
 location: usa-sanfrancisco
+#location: hongkong-1
+#location: uk-london

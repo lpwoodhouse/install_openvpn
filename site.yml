@@ -30,3 +30,13 @@
   - name: install openvpn client
     include_role:
       name: install_openvpn
+
+  # verify connection
+  - name: verify connection
+    shell: >
+      curl ifconfig.io/all
+    register: results
+
+  - debug:
+      msg: "{{ results.stdout_lines }}"
+
