@@ -8,14 +8,13 @@
 - name: install epel-release for Enterprise Linux
   block:
   - name: enable RH repos
-    rhsm_repository:
-      name: "{{ item }}"
-      state: enabled
+    shell: >
+      subscription-manager repos --enable {{ item }}
     loop:
-      - "rhel-*-optional-rpms"
-      - "rhel-*-extras-rpms"
-      - "rhel-ha-for-rhel-*-server-rpms"
-  - name:
+      - rhel-*-optional-rpms
+      - rhel-*-extras-rpms
+      - rhel-ha-for-rhel-*-server-rpms
+  - name: install epel-release
     yum:
       name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
       state: present

@@ -15,10 +15,9 @@
 - name: install epel-release for Enterprise Linux
   block:
   - name: enable RH repos
-    rhsm_repository:
-      name: codeready-builder-for-rhel-8-$(arch)-rpms
-      state: enabled
-  - name:
+    shell: >
+      subscription-manager repos --enable codeready-builder-for-rhel-8-$(arch)-rpms
+  - name: install epel-release
     dnf:
       name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
       state: present
