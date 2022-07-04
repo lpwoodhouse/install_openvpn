@@ -19,9 +19,6 @@ vpn_client_vars:
     service: openvpn@client
     config_path: /etc/openvpn
 
-# authorized vpn user credentials
-
-
 # location variable
 location: usa-sanfrancisco
 #location: hongkong-1
