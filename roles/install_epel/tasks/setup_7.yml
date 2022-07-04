@@ -14,6 +14,10 @@
       - rhel-*-optional-rpms
       - rhel-*-extras-rpms
       - rhel-ha-for-rhel-*-server-rpms
+  - name: Import Fedora GPG key
+    rpm_key:
+      state: present
+      key: https://getfedora.org/static/fedora.gpg
   - name: install epel-release
     yum:
       name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
