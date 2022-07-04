@@ -31,8 +31,8 @@
       owner: root
       group: root
       mode: 0600
-    no_log: true
-    loop: "{{ vpn_client_vars|subelements('auth') }}"
+    #no_log: true
+    loop: "{{ vpn_client_vars|subelements(auth) }}"
     when: item.0.family == ansible_os_family
 
   - name: copy configuration template
