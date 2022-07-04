@@ -31,6 +31,13 @@
     include_role:
       name: install_openvpn
 
+  - meta: flush_handlers
+
+  # wait for new vpn connection to establish
+  - pause:
+      seconds: 15
+      prompt: wait for new connection to establish
+
   # verify connection
   - name: verify connection
     shell: >
