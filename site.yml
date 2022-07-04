@@ -20,8 +20,8 @@
   become: true
   vars:
     auth:
-      - user: "{{ auth_user }}"
-      - pass: "{{ auth_pass }}"
+      - "{{ auth_user }}"
+      - "{{ auth_pass }}"
   
   tasks:
   
