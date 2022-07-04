@@ -18,9 +18,8 @@
     shell: >
       subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
   - name: Import Fedora GPG key
-    rpm_key:
-      state: present
-      key: https://getfedora.org/static/fedora.gpg
+    shell: >
+      curl -O https://getfedora.org/static/fedora.gpg
   - name: install epel-release
     dnf:
       name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
