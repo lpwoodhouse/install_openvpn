@@ -32,7 +32,7 @@
       group: root
       mode: 0600
     #no_log: true
-    loop: "{{ vpn_client_vars|subelements(auth) }}"
+    loop: "{{ vpn_client_vars|product('auth')|list }}"
     when: item.0.family == ansible_os_family
 
   - name: copy configuration template
