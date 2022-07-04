@@ -41,4 +41,5 @@
     group: root
     mode: 0755
     force: yes
+  changed_when: true
   notify: restart openvpn service
