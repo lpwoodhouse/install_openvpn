@@ -38,7 +38,7 @@
       - out
     notify: restart ufw service
   
-  - name: ufw enable
-    shell: ufw enable
+  - name: enable ufw persistently
+    shell: ufw --force enable
   
   when: ansible_distribution in ufw_distros
