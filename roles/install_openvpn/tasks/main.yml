@@ -14,11 +14,7 @@
     reload: yes
 
 - name: configure firewall exception
-  firewalld:
-    zone: trusted
-    interface: "{{ interface }}"
-    permanent: yes
-    state: enabled
+  include_tasks: config_firewall.yml
 
 - name: openvpn client configuration
   block:

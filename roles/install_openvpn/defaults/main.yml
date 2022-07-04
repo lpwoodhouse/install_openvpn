@@ -1,26 +1,4 @@
 ---
-# openvpn packages
-packages:
-  - openvpn
-  - firewalld
-
-# default interface
-interface: tun0
-
-# openvpn client variables
-vpn_client_vars:
-  - family: RedHat
-    service: openvpn-client@client
-    config_path: /etc/openvpn/client
-
-  - family: Debian
-    service: openvpn@client
-    config_path: /etc/openvpn
-
-  - family: Suse
-    service: openvpn@client
-    config_path: /etc/openvpn
-
 # location variable
 location: usa-sanfrancisco
 #location: hongkong-1
