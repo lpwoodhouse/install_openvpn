@@ -31,7 +31,7 @@
     ufw:
       rule: allow
       interface: "{{ interface }}"
-      proto: all
+      proto: any
     notify: restart ufw service
   
   when: ansible_distribution in ufw_distros
