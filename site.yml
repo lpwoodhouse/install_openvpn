@@ -17,7 +17,6 @@
 
 - name: download and configure openvpn client
   hosts: new_group,!localhost
-  #gather_facts: no
   become: true
   
   tasks:
