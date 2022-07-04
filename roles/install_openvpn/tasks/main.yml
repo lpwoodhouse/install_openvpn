@@ -20,26 +20,32 @@
     permanent: yes
     state: enabled
 
-- name: configure auth user file
-  lineinfile:
-    path: "{{ auth_file }}"
-    create: yes
-    line: "{{ item }}"
-    owner: root
-    group: root
-    mode: 0600
-  no_log: true
-  loop:
-    - "{{ auth_user }}"
-    - "{{ auth_pass}}"
 
-- name: copy configuration template
-  template:
-    src: client.conf.j2
-    dest: "{{ config_file }}"
-    owner: root
-    group: root
-    mode: 0755
-    force: yes
-  changed_when: true
-  notify: restart openvpn service
+- name: openvpn client configuration
+  block:
+
+  - name: configure auth user file
+    lineinfile:
+      path: "{{ item.0.config_path }}/client.conf"
+      create: yes
+      line: "{{ item.1 }}"
+      owner: root
+      group: root
+      mode: 0600
+    no_log: true
+    with_nested:
+    loop: "{{ vpn_config|product(auth)|list }}"
+    when: vpn_config.family == ansible_os_family
+
+  - name: copy configuration template
+    template:
+      src: client.conf.j2
+      dest: "{{ item.config_path }}/client.conf"
+      owner: root
+      group: root
+      mode: 0755
+      force: yes
+    changed_when: true
+    notify: restart openvpn service
+    loop: "{{ vpn_config }}"
+    when: vpn_config.family == ansible_os_family

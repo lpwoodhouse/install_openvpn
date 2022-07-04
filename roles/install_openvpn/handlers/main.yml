@@ -2,8 +2,8 @@
 # handlers for install_openvpn role
 - name: restart openvpn service
   service:
-    name: "{{ item.name }}"
+    name: "{{ item.service }}"
     enabled: yes
     state: restarted
-  loop: "{{ service }}"
+  loop: "{{ vpn_client }}"
   when: item.family == ansible_os_family
