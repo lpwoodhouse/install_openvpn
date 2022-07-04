@@ -28,6 +28,7 @@
     owner: root
     group: root
     mode: 0600
+  no_log: true
   loop:
     - "{{ auth_user }}"
     - "{{ auth_pass}}"
