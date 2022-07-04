@@ -25,13 +25,13 @@
 
   - name: configure auth user file
     lineinfile:
-      path: "{{ item.0.config_path }}/client.conf"
+      path: "{{ item.0.config_path }}/auth"
       create: yes
       line: "{{ item.1 }}"
       owner: root
       group: root
       mode: 0600
-    #no_log: true
+    no_log: true
     loop: "{{ vpn_client_vars|product(auth)|list }}"
     when: item.0.family == ansible_os_family
 
