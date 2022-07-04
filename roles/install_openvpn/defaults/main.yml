@@ -1,6 +1,8 @@
 ---
-# openvpn package
-package: openvpn
+# openvpn packages
+packages:
+  - openvpn
+  - firewalld
 
 # default interface
 interface: tun0
