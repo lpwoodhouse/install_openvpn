@@ -20,9 +20,7 @@ vpn_client:
     config_path: /etc/openvpn
 
 # authorized vpn user credentials
-auth:
-  - user: <username>
-  - pass: <password>
+
 
 # location variable
 location: usa-sanfrancisco

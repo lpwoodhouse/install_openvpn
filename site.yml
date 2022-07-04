@@ -18,6 +18,10 @@
 - name: download and configure openvpn client
   hosts: new_group,!localhost
   become: true
+  vars:
+    auth:
+      - user: "{{ auth_user }}"
+      - pass: "{{ auth_pass }}"
   
   tasks:
   
