@@ -6,7 +6,13 @@ package: openvpn
 interface: tun0
 
 # openvpn client service variable
-service: openvpn-client@client
+service:
+  - family: RedHat
+    name: openvpn-client@client
+  - family: Debian
+    name: openvpn@client
+  - family: Suse
+    name: openvpn@client
 
 # path to openvpn config
 config_file: /etc/openvpn/client/client.conf
