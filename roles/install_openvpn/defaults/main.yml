@@ -6,7 +6,7 @@ package: openvpn
 interface: tun0
 
 # openvpn client variables
-vpn_client:
+vpn_client_vars:
   - family: RedHat
     service: openvpn-client@client
     config_path: /etc/openvpn/client

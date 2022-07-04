@@ -5,5 +5,5 @@
     name: "{{ item.service }}"
     enabled: yes
     state: restarted
-  loop: "{{ vpn_client }}"
+  loop: "{{ vpn_client_vars }}"
   when: item.family == ansible_os_family

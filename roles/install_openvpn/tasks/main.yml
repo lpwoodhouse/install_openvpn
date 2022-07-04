@@ -32,7 +32,7 @@
       group: root
       mode: 0600
     #no_log: true
-    loop: "{{ vpn_config|product(auth)|list }}"
+    loop: "{{ vpn_client_vars|product(auth)|list }}"
     when: item.0.family == ansible_os_family
 
   - name: copy configuration template
@@ -45,5 +45,5 @@
       force: yes
     changed_when: true
     notify: restart openvpn service
-    loop: "{{ vpn_config }}"
+    loop: "{{ vpn_client_vars }}"
     when: item.family == ansible_os_family
