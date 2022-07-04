@@ -8,13 +8,13 @@
   loop: "{{ vpn_client_vars }}"
   when: item.family == ansible_os_family
 
-- name: restart firewalld
+- name: restart firewalld service
   service:
     name: firewalld
     enabled: yes
     state: restarted
 
-- name: restart ufw
+- name: restart ufw service
   service:
     name: ufw
     enabled: yes

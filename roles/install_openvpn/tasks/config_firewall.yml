@@ -15,9 +15,9 @@
       interface: "{{ interface }}"
       permanent: yes
       state: enabled
-    notify: restart firewalld
+    notify: restart firewalld service
 
-  when: ansible_os_family in firewalld_distros
+  when: ansible_distribution in firewalld_distros
 
 - name: ufw configuration
   block:
@@ -32,4 +32,6 @@
       rule: allow
       interface: "{{ interface }}"
       proto: all
-    notify: restart ufw
+    notify: restart ufw service
+  
+  when: ansible_distribution in ufw_distros
