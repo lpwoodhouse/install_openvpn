@@ -31,7 +31,14 @@
     ufw:
       rule: allow
       interface: "{{ interface }}"
+      direction: "{{ item }}"
       proto: any
+    loop:
+      - in
+      - out
     notify: restart ufw service
+  
+  - name: ufw enable
+    shell: ufw enable
   
   when: ansible_distribution in ufw_distros
