@@ -23,8 +23,6 @@
 - name: openvpn client configuration
   block:
 
-
-
   - name: configure auth user file
     lineinfile:
       path: "{{ item.0.config_path }}/client.conf"
@@ -34,7 +32,6 @@
       group: root
       mode: 0600
     no_log: true
-    with_nested:
     loop: "{{ vpn_config|product(auth)|list }}"
     when: vpn_config.family == ansible_os_family
 
