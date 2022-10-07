@@ -1,6 +1,9 @@
-# Ansible Play: install-openvpn
+# Ansible Play: install_openvpn
+![GitHub last commit](https://img.shields.io/github/last-commit/lpwoodhouse/playbook_install_openvpn)
+![GitHub repo file count](https://img.shields.io/github/directory-file-count/lpwoodhouse/playbook_install_openvpn)
+![GitHub top language](https://img.shields.io/github/languages/top/lpwoodhouse/playbook_install_openvpn)
 
-### <sub-heading>
+## Purpose
 
 This play is for installing the openvpn client and tailoring it for an ExpressVPN connection.
 
@@ -34,8 +37,8 @@ None
 
 ## License
 
-MIT
+[![GitHub](https://img.shields.io/github/license/lpwoodhouse/playbook_install_openvpn)](LICENSE)
 
 ## Author Information
 
-This role was created in 2022 by [Lee Woodhouse](https://www.leewoodhouse.com/)
+This playbook was created in 2022 by [Lee Woodhouse](https://www.leewoodhouse.com/)
