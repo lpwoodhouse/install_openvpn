@@ -1,4 +1,4 @@
-# Ansible Play: install_openvpn
+# Ansible Playbook: install_openvpn
 ![GitHub last commit](https://img.shields.io/github/last-commit/lpwoodhouse/playbook_install_openvpn)
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/lpwoodhouse/playbook_install_openvpn)
 ![GitHub top language](https://img.shields.io/github/languages/top/lpwoodhouse/playbook_install_openvpn)
