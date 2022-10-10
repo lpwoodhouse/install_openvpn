@@ -1,4 +1,6 @@
 # Install OpenVPN Client (for ExpressVPN)
+![openvpn](https://img.shields.io/badge/-OpenVPN-grey?style=flat&logo=openvpn)
+![expressvpn](https://img.shields.io/badge/-ExpressVPN-red?style=flat&logo=expressvpn&logoColor=white)
 [![playbook](https://img.shields.io/badge/Ansible-Playbook-blue)](site.yml)
 ![GitHub last commit](https://img.shields.io/github/last-commit/lpwoodhouse/install_openvpn)
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/lpwoodhouse/install_openvpn)
